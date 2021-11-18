@@ -6,3 +6,5 @@
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+../.idea
+../projecte-asix-uf1-equip-9-1.iml
