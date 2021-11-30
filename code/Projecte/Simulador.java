@@ -14,6 +14,7 @@ public class Simulador {
                 System.out.println(" - Persona");
                 System.out.println(" - Animal");
                 System.out.println(" - Extraterrestre");
+
                 System.out.print("Opció: ");
                 switch (scanner.nextLine()) {
                     case "Persona":
