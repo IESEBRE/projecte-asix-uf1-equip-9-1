@@ -1,21 +1,20 @@
 package UF1.Projecte;
 
-import java.util.Random;
+import java.util.Arrays;
 import java.util.Scanner;
+import static UF1.Projecte.Simulador.joel;
+import static UF1.Projecte.Simulador.ent;
 
 public class Person {
     // Constructor
     void Person (){}
 
-    boolean talking () {
-        System.out.println ("Hola, que tal!\n");
+    String talking () {
         boolean finish = false, guanyador=false;
-        String name="";
-        String sexe="";
-        String esport="";
+        Boolean fet[]=new Boolean[8];
+        Arrays.fill(fet,Boolean.FALSE);
+        String name="", sexe="", esport="", fina="",sortida3="",sortida4="",sortida6="",sortida7="";
         do {
-            Scanner scanner = new Scanner(System.in);
-            // Questionari
             System.out.println("Qüestionari");
             System.out.println(" 1. Quin tipus de persona ets?");
             System.out.println(" 2. Quin esport t'agrada");
@@ -26,11 +25,288 @@ public class Person {
             System.out.println(" 7. Pots recorda-me la nostra conversa?");
             System.out.println(" 8. Sortir");
             System.out.print("Opció: ");
+            switch (Integer.parseInt(ent.nextLine())) {
+                case 1:
+                    System.out.print("Escriu un numero del 0 al 100: ");
+                    int numero= Integer.parseInt(ent.nextLine());
+                    String se="";
+
+                    while(true) {
+                        if(numero%2==0 && numero%3==0){
+                            se+="No binari";
+                            System.out.println(se);
+                            sexe+=se;
+                            break;
+                        }
+                        else{
+                            if(numero%2==0) {
+                                se+="Home";
+                                System.out.println(se);
+                                sexe+=se;
+                                break;
+                            }else{
+                                if(numero%3==0) {
+                                    se+="Dona";
+                                    System.out.println(se);
+                                    sexe+=se;
+                                    break;
+                                }else {
+                                    if (numero<=100)numero+=2;
+                                    else numero-=4;
+                                }
+                            }
+                        }
+                    }
+                    fet[0]=true;
+                    break;
+                case 2:
+                    if (fet[0]!=true){
+                        System.out.println("Has de seguir les opcions en ordre i sense repetir. Torna-ho a intentar!!");
+                        continue;
+                    }else{
+                        System.out.print("Introduix un numero del 1 al 10: ");
+                        int num = Integer.parseInt(ent.nextLine());
+                        switch (num) {
+                            case 1:
+                                System.out.println("Golf");
+                                esport+="Golf";
+                                break;
+                            case 2:
+                                System.out.println("Fútbol americano");
+                                esport+="Fútbol americano";
+                                break;
+                            case 3:
+                                System.out.println("Béisbol");
+                                esport+="Béisbol";
+                                break;
+                            case 4:
+                                System.out.println("Tenis de mesa");
+                                esport+="Tenis de mesa";
+                                break;
+                            case 5:
+                                System.out.println("Voleibol");
+                                esport+="Voleibol";
+                                break;
+                            case 6:
+                                System.out.println("Tenis");
+                                esport+="Tenis";
+                                break;
+                            case 7:
+                                System.out.println("Hockey sobre césped");
+                                esport+="Hockey sobre césped";
+                                break;
+                            case 8:
+                                System.out.println("Baloncesto");
+                                esport+="Baloncesto";
+                                break;
+                            case 9:
+                                System.out.println("Cricket");
+                                esport+="Cricket";
+                                break;
+                            case 10:
+                                System.out.println("Fútbol");
+                                esport+="Fútbol";
+                                break;
+                        }
+                        fet[1]=true;
+                        break;
+                    }
+                case 3:
+                    if (fet[1]!=true){
+                        System.out.println("Has de seguir les opcions en ordre i sense repetir. Torna-ho a intentar!!");
+                        continue;
+                    }else{
+                        System.out.print("Introduix un numero màxim: ");
+                        int nume = Integer.parseInt(ent.nextLine());
+                        int i=0;
+                        String resultat="";
+                        while (i<nume/2){
+                            resultat+=" "+i;
+                            i++;
+                        }
+                        sortida3+=resultat+" ...He triat el "+nume/2;
+                        System.out.println(sortida3);
+                        fet[2]=true;
+                        break;
+                    }
+                case 4:
+                    if (fet[2]!=true){
+                        System.out.println("Has de seguir les opcions en ordre i sense repetir. Torna-ho a intentar!!");
+                        continue;
+                    }else{
+                        int a,b, multi, multi2;
+                        String fi="", fi2="";
+                        System.out.println("introdueix dos enters: ");
+                        a=Integer.parseInt(ent.nextLine());
+                        b=Integer.parseInt(ent.nextLine());
+
+                        for (int k=a ; k <=b ; k++) {
+                            System.out.println();
+                            for (int j=b; j >=a ; j--) {
+                                sortida4+=k*j+" ";
+                                System.out.print(k*j+"\t");
+                            }
+                            sortida4+="\n";
+                        }
+                        System.out.println();
+                        fet[3]=true;
+                        break;
+                    }
+                case 5:
+                    if (fet[3]!=true){
+                        System.out.println("Has de seguir les opcions en ordre i sense repetir. Torna-ho a intentar!!");
+                        continue;
+                    }else{
+                        boolean joc = false;
+                        int usuari,maquina=0, jugador=0;
+                        do {
+                            int person = (int)(Math.random() * 3) + 1;
+                            System.out.println("Tria :    \n 1.pedra\n 2.papel\n 3.tisora ");
+                            System.out.print("Ya!!: ");
+                            usuari= Integer.parseInt(ent.nextLine());
+                            switch ( person )
+                            {
+                                case 1:
+                                    switch ( usuari )
+                                    {
+                                        case 1:
+                                            System.out.println(person+" vs "+ usuari );
+                                            System.out.println("Empat! ningú puntua");
+                                            break;
+                                        case 2:
+                                            System.out.println(person+" vs "+ usuari );
+                                            jugador++;
+                                            System.out.println("Guanyes! tens: "+jugador+" punts");
+                                            System.out.println("       te: "+maquina+" punts");
+                                            break;
+                                        case 3:
+                                            System.out.println(person+"vs"+ usuari );
+                                            maquina++;
+                                            System.out.println("Perds! tens: "+jugador+" punts");
+                                            System.out.println("       te: "+maquina+" punts");
+                                            break;
+                                    }
+                                    break;
+
+                                case 2:
+
+                                    switch ( usuari )
+                                    {
+                                        case 1:
+                                            System.out.println(person+"vs"+ usuari );
+                                            maquina++;
+                                            System.out.println("Perds! tens: "+jugador+" punts");
+                                            System.out.println("       te: "+maquina+" punts");
+                                            break;
+                                        case 2:
+                                            System.out.println(person+" vs "+ usuari );
+                                            System.out.println("Empat! ningú puntua");
+                                            break;
+                                        case 3:
+                                            System.out.println(person+" vs "+ usuari );
+                                            jugador++;
+                                            System.out.println("Guanyes! tens: "+jugador+" punts");
+                                            System.out.println("         te: "+maquina+" punts");
+                                            break;
+                                    }
+                                    break;
+
+                                case 3:
+                                    switch ( usuari )
+                                    {
+                                        case 1:
+                                            System.out.println(person+" vs "+ usuari );
+                                            jugador++;
+                                            System.out.println("Guanyes! tens: "+jugador+" punts");
+                                            System.out.println("       te: "+maquina+" punts");
+                                            break;
+                                        case 2:
+                                            System.out.println(person+"vs"+ usuari );
+                                            maquina++;
+                                            System.out.println("Perds! tens: "+jugador+" punts");
+                                            System.out.println("       te: "+maquina+" punts");
+                                            break;
+                                        case 3:
+                                            System.out.println(person+" vs "+ usuari );
+                                            System.out.println("Empat! ningú puntua");
+                                            break;
+                                    }
+                                    break;
+                            }
+                            if (maquina==5) {
+                                System.out.println("Perds la partida!!");
+                                joc=true;
+                            }else{
+                                if (jugador ==5){
+                                    System.out.println("Guanyes la partida!!");
+                                    guanyador=true;
+                                    joc=true;
+                                }
+                            }
+
+                        }while(!joc);
+                        fet[4]=true;
+                        break;
+                    }
+                case 6:
+                    if (fet[4]!=true){
+                        System.out.println("Has de seguir les opcions en ordre i sense repetir. Torna-ho a intentar!!");
+                        continue;
+                    }else{
+                        System.out.print("Escull un nom: ");
+                        String nom=ent.nextLine();
+                        name+=nom;
+                        sortida6+="Gràcies, m’agrada molt el nom de "+ nom;
+                        System.out.println(sortida6);
+                        fet[5]=true;
+                        break;
+                    }
+                case 7:
+                    if (fet[5]!=true){
+                        System.out.println("Has de seguir les opcions en ordre i sense repetir. Torna-ho a intentar!!");
+                        continue;
+                    }else{
+                        sortida7+="Hem dic "+name+" i he nascut "+sexe+
+                                " el meu esport favorit és el "+esport;
+                        System.out.println(sortida7);
+                        if (guanyador==true) System.out.println("Juga se'm dona bé però he de reconèixer que has" +
+                                " guanyat de forma triunfal, ets molt bo!!");
+                        else {
+                            if (guanyador==false)System.out.println("Juga se'm dona molt bé, he guanyat");
+                        }
+                        fet[6]=true;
+                        break;
+                    }
+                case 8:
+                    if (fet[6]!=true){
+                        System.out.println("Has de seguir les opcions en ordre i sense repetir. Torna-ho a intentar!!");
+                        continue;
+                    }else{
+                        finish=true;
+                        fet[7]=true;
+                        break;
+                    }
+            }
+        } while (!finish);
+        fina+=sexe+"\n\n"+ esport+"\n\n"+sortida3+"\n\n"+sortida4+"\n"+sortida6+"\n\n"+sortida7;
+
+        return fina;
+    }
+
+    boolean joel(){
+        boolean finish = false, guanyador=false;
+        Boolean fet[]=new Boolean[8];
+        String name="";
+        String sexe="";
+        String esport="";
+        do {
+            Scanner scanner = new Scanner(System.in);
+            // Questionari
+
             switch (scanner.nextInt()) {
                 case 1:
                     //qui ets
                     Scanner scan = new Scanner(System.in);
-                    System.out.print("Escriu un numero del 0 al 100: ");
                     int numero= scan.nextInt();
                     String se="";
 
@@ -60,9 +336,9 @@ public class Person {
                             }
                         }
                     }
+
                     break;
                 case 2:
-                    System.out.print("Introduix un numero del 1 al 10: ");
                     Scanner entrada = new Scanner(System.in);
                     int num = entrada.nextInt();
                     switch (num) {
@@ -109,7 +385,6 @@ public class Person {
                     }
                     break;
                 case 3:
-                    System.out.print("Introduix un numero màxim: ");
                     Scanner scann = new Scanner(System.in);
                     int nume = scann.nextInt();
                     int i=0;
@@ -122,24 +397,16 @@ public class Person {
                     break;
                 case 4:
                     Scanner n = new Scanner(System.in);
-                    int a,b, multi=0;
-                    String fi="";
-                    System.out.print("introdueix dos enters: ");
+                    int a,b;
                     a=n.nextInt();
                     b=n.nextInt();
-                        //for
-                        //primero decremento "b" e imprimo los pares
-                        //incremento a i vuevo a decrementar b
-
-//                    for (; a <=b ; a++) {
-                        for (; b <=a ; b--) {
-                             multi =a*b;
-                            if (multi%2==0)fi+=multi;
-                            System.out.println(multi);
+                    for (int k=a ; k <=b ; k++) {
+                        System.out.println();
+                        for (int j=b; j >=a ; j--) {
+                            System.out.print(k*j+" ");
                         }
-//                    }
-
-
+                    }
+                    System.out.println();
                     break;
                 case 5:
                     Scanner s = new Scanner(System.in);
@@ -147,8 +414,6 @@ public class Person {
                     int usuari,maquina=0, jugador=0;
                     do {
                         int person = (int)(Math.random() * 3) + 1;
-                        System.out.println("Tria :    \n 1.pedra\n 2.papel\n 3.tisora ");
-                        System.out.print("Ya!!: ");
                         usuari= s.nextInt();
                         switch ( person )
                         {
@@ -220,11 +485,11 @@ public class Person {
                                 break;
                         }
                         if (maquina==5) {
-                            System.out.println("Perds la partida!!");
+//                            System.out.println("Perds la partida!!");
                             joc=true;
                         }else{
                             if (jugador ==5){
-                                System.out.println("Guanyes la partida!!");
+//                                System.out.println("Guanyes la partida!!");
                                 guanyador=true;
                                 joc=true;
                             }
@@ -234,7 +499,7 @@ public class Person {
                     break;
                 case 6:
                     Scanner sc = new Scanner(System.in);
-                    System.out.print("Escull un nom: ");
+//                    System.out.print("Escull un nom: ");
                     String nom=sc.nextLine();
                     name+=nom;
                     System.out.println("Gràcies, m’agrada molt el nom de "+ nom);
@@ -249,16 +514,16 @@ public class Person {
                     }
                     break;
                 case 8:
-                    Scanner ent = new Scanner(System.in);
-                    System.out.print("Vols sortir? y/n");
-                    String sortir= ent.nextLine();
-                    if (sortir.equalsIgnoreCase("n")) {
-                        System.out.println("seguim conversant");
-                    }else {
-                        if (sortir.equalsIgnoreCase("y"))
-                            System.out.println("adéu!!");
+//                    Scanner ent = new Scanner(System.in);
+//                    System.out.print("Vols sortir? y/n : ");
+//                    String sortir= ent.nextLine();
+//                    if (sortir.equalsIgnoreCase("n")) {
+//                        System.out.println("seguim conversant");
+//                    }else {
+//                        if (sortir.equalsIgnoreCase("y"))
+//                            System.out.println("adéu!!");
                         finish=true;
-                    }
+//                    }
                     break;
             }
         } while (!finish);
