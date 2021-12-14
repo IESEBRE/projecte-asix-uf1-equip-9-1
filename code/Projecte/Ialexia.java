@@ -1,5 +1,6 @@
 package UF1.Projecte;
 
+import javax.swing.*;
 import java.util.Scanner;
 
 public class Ialexia {
@@ -11,6 +12,16 @@ public class Ialexia {
     boolean talking() {
         System.out.println("Hola, soc Ialexia!\n");
         boolean finish = false;
+
+        int num1 = 0;
+        int num2 = 0;
+        int num3 = 0;
+        int z = 0;
+        String nomI = "";
+        String joc1 = "";
+        String joc2 = "";
+        String joc3 = "";
+        String secreta = "";
         do {
             Scanner scanner = new Scanner(System.in);
             // Questionari
@@ -18,8 +29,8 @@ public class Ialexia {
             System.out.println(" 1. Quin tipus d’IA ets?");
             System.out.println(" 2. De que t'agrada parlar");
             System.out.println(" 3. Quin és el teu número favorit entre 0 i ...?");
-            System.out.println(" 4. Sabries llistar tots els nombres parells resultants de la multiplicació entre el valor enter a i b, on el valor de a creixerà fins b");
-            System.out.println(" 5. Juguem al penjat?");
+            System.out.println(" 4. Sabries llistar tots els numeros enters parells e imparells d'un numero?");
+            System.out.println(" 5. Voldria jugua al joc, El penjat");
             System.out.println(" 6. Posa-li un nom!");
             System.out.println(" 7. Pots recorda-me la nostra conversa?");
             System.out.println(" 8. Sortir de l’aplicació");
@@ -27,7 +38,7 @@ public class Ialexia {
             switch (scanner.nextInt()) {
                 case 1:
                     System.out.println("Introduex un numero del 1 al 3");
-                    int num1 = scanner.nextInt();
+                    num1 = scanner.nextInt();
 
                     if (num1 == 1) {
                         System.out.println("Pau ");
@@ -62,7 +73,7 @@ public class Ialexia {
                     System.out.println("10. Música\n");
                     System.out.print("Opcio");
 
-                    int num2 = scanner.nextInt();
+                    num2 = scanner.nextInt();
                     switch (num2) {
                         case 1:
                             System.out.println("És freqüent trobar qui descriu la matemàtica com una simple extensió dels llenguatges naturals humans,\n" +
@@ -132,7 +143,7 @@ public class Ialexia {
                 case 3:
 
 
-                    int num3 = 0;
+                    num3 = 0;
 
 
                     do {
@@ -148,193 +159,81 @@ public class Ialexia {
 
                     } while (num3 != 8);
 
-
-//
-//
-//                        else{
-//                            System.out.println(" Ho sento, no és el meu número favorit. Tornaho a intentar");
-//
-//                }
-
-//
-
-//                    switch (num3) {
-//
-//                        case 1:
-//                            break;
-//
-//                        case 2:
-//
-//                            break;
-//
-//                        case 3:
-//
-//                            break;
-//
-//
-//                        case 4:
-//
-//
-//                            break;
-//
-//
-
-//
-//
-//                            if (numfa == 8) {
-//                                System.out.println("Henorabona es el meu numero favorit ");
-//
-//                                break;
-//                                case 3:
-//
-//                                    if (num3 == 8 | num3 != 8) {
-//                        System.out.println("Henorabona es el meu numero favorit ");
-//                            System.out.println(" Ho sento, no és el meu número favorit");
-//                    int numfa = scanner.nextInt();
-//
-//                    if (numfa == 8){
-//                        System.out.println("Henorabona es el meu numero favorit ");
-//
-//
-//                    }else {
-//                        if (numfa != 8) {
-//                            System.out.println(" Ho sento, no és el meu número favorit");
-//
-//
-//
-//
-//                            if (numfa == 8){
-//                                break;
-//                            }
-//                        }
-//
-//                    }
-
                     break;
                 case 4:
 
-
-//                            Scanner teclado = new Scanner(System.in);
-//
-//                            int sumaPares = 0; //Acumular la suma de pares
-//                            int contadorImpares = 0; //Contar la cantidad de impares introducidos
-//                            int numero = 0;
-//
-//                            do {
-//                                //Pedimos número
-//                                System.out.print("Introduce un número (0 para SALIR): ");
-//                                numero = teclado.nextInt();
-//
-//                                //Evaluamos si es par o impar
-//                                if (numero %2!= 0) //Es impar
-//                                    sumaPares = sumaPares + numero; //Acumulamos suma
-//                                else //Es impar
-//                                    contadorImpares++; //Contamos el impar introducido
-//
-//                            }while (numero != 0);
-//
-//                            //Bucle terminado, mostramos resultados
-//                            System.out.println("\nLa suma de pares es: " + sumaPares);
-//                            System.out.println("Cantidad impares introducidos: " + contadorImpares);
-
-
                     Scanner qua = new Scanner(System.in);
-                    int z = 0;
-                    int x= 0;
-
-                    int tot=z*x;
+                    z = 0;
 
 
-
-                    System.out.println("Introduex el primer numero:");
+                    System.out.println("És clar que sí!! \nSelecciona un numero del 1 al 10");
                     z = qua.nextInt();
-
-                    System.out.println("Introduex el primer numero:");
-                    x = qua.nextInt();
-                    System.out.println(z*x);
-
-
-                    if ((tot%2) !=0){
-                        System.out.println("Aquests son els numeros imparells" + tot );
+                    for (int i = 1; i < z; i++) {
+                        if (i % 2 == 0) {
+                            System.out.println("El número" + i + " es par");
+                        } else {
+                            System.out.println("el numero" + i + " es impar");
+                        }
                     }
-
-
-
-
-//                    while (){
-//                        System.out.println("Auests numeros son imparells" + tot);
-//                    }
-
-
-
-
-
-
-
-
-
-
-
-
-//                            int cant, num, pares=0, impares=0;
-//                            System.out.print("Cuantos numeros desea ingresar: ");
-//                            Scanner cuatre = new Scanner(System.in);
-//                            cant = scanner.nextInt();
-//
-//                            for(int i=1; i<=cant; i++){
-//                                System.out.print("Ingresar numero " + i + " de " + cant + ": ");
-//                                num = (new Scanner(System.in)).nextInt();
-//                                if(num%2 == 0)
-//                                    pares++;
-//                                else
-//                                    impares++; }
-//
-//                            System.out.println("\nCantidad de numeros pares: " + pares);
-//                            System.out.println("Cantidad de numeros impares: " + impares);
-
-//
-
-
-
-//                            if (%2!=0)
-//                                return true;
-//                            else ();
-//                                return false;
-
-
-
 
 
                     break;
                 case 5:
+                    int intents=0;
+
+                    String paraula3;
+
+                    secreta= JOptionPane.showInputDialog("Introdueix la paraula secreta");
+                    do{
+                        paraula3 =JOptionPane.showInputDialog("Intenta averiguar la paraula, intent: "+(intents+1));
+
+                    } while (!paraula3.equalsIgnoreCase(secreta) && ++intents<3);
+                    if (intents==3){
+                        JOptionPane.showMessageDialog(null, "Ho sento, la paraula secreta era: "+secreta);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Enhorabona!!");
+                    }
+
 
                     break;
                 case 6:
+                    Scanner nom = new Scanner(System.in);
+
+
+                    System.out.println("Vaig a posarte un nom\nVaiga posarte...");
+                    nomI = nom.nextLine();
+
+                    System.out.println("El teu nom sera, " + nomI + ", espero que tagradi ");
+
 
                     break;
                 case 7:
 
+                    System.out.println("Soc una IA " + num1 + ". M'agrada parlar de " + num2 +
+                            ", el meu número favorit és " + num3 + ", Els numero parells i imparells són " + z +
+                            ", En el jos as " + secreta + "\n El teu nom és " + nomI + ".");
+
+
                     break;
                 case 8:
-                    System.out.println("Adéu!!");
-                    finish = true;
-                    Scanner ent = new Scanner(System.in);
-                    System.out.print("Vols sortir? ");
-                    String sortir= ent.nextLine();
-                    if (sortir.equalsIgnoreCase("no")) {
-                        System.out.println("seguim conversant");
-                    }else {
-                        if (sortir.equalsIgnoreCase("si"))
-                            System.out.println("adéu!!");
-                        finish=true;
+                    System.out.println("Estas segur que vols surtir?");
+                    scanner = new Scanner(System.in);
+                    String surtir = scanner.nextLine();
+                    if (surtir.equals("SI")) {
+                        return true;
                     }
+                    if (surtir.equals("NO")) {
+                        break;
+                    }
+
 
                     break;
             }
         }
-        while (!finish) ;
+        while (!finish);
 
 
         return true;
     }
 }
+
