@@ -15,26 +15,24 @@ public class Simulador {
         boolean finish = false, personatge=false;
         String personConver="";
 
-        System.out.print("Introduix un numero (0/0¹) : ");
+//        System.out.print("Introduix un numero (0/0¹) : ");
 
-        joe=Integer.parseInt(ent.nextLine());
-        if (joe==0){
-            System.out.println("joel");
-//            Person person = new Person();
-//            fi = person.joel();
-        }else {
-        System.out.print("En quants vols conversar <0: ");
+        joel=Integer.parseInt(ent.nextLine())==0;
+
+        if(!joel)System.out.print("En quants vols conversar <0: ");
         index=Integer.parseInt(ent.nextLine());
         conver=new String[index];
 
             do {
 //                Scanner scan = new Scanner(System.in);
                 // Escollir amb qui volem conversar
-                System.out.println("Trieu una opció");
-                System.out.println("1 - Conversar");
-                System.out.println("2 - Mostrar conversa");
-                System.out.println("3 - Sortir del programa");
-                System.out.print("Opció: ");
+                if(!joel){
+                    System.out.println("Trieu una opció");
+                    System.out.println("1 - Conversar");
+                    System.out.println("2 - Mostrar conversa");
+                    System.out.println("3 - Sortir del programa");
+                    System.out.print("Opció: ");
+                }
                 Person person = new Person();
                 int opcio=0;
                 switch (opcio= Integer.parseInt(ent.nextLine())) {
@@ -42,13 +40,14 @@ public class Simulador {
                         do {
 //                            Scanner scanner = new Scanner(System.in);
                             // Escollir amb qui volem conversar
-                            System.out.println("Amb qui vols conversar?");
-                            System.out.println(" - Persona");
-                            System.out.println(" - Animal");
-                            System.out.println(" - Extraterrestre");
-                            System.out.println(" - Ialexia");
-                            System.out.print("Opció: ");
-
+                            if(!joel){
+                                System.out.println("Amb qui vols conversar?");
+                                System.out.println(" - Persona");
+                                System.out.println(" - Animal");
+                                System.out.println(" - Extraterrestre");
+                                System.out.println(" - Ialexia");
+                                System.out.print("Opció: ");
+                            }
                             switch (ent.nextLine()) {
                                 case "Persona":
                                    personConver=person.talking();
@@ -62,13 +61,14 @@ public class Simulador {
                                     break;
                                 case "Ialexia":
                                     Ialexia ialexia = new Ialexia();
-                                    finish = ialexia.talking();
+                                    ialexia.talking();
+                                    personatge=true;
                                     break;
                             }
                         } while (!personatge);
                         break;
                     case 2:
-                        System.out.println("Introduix quina conversació vols veure");
+                        if(!joel)System.out.println("Introduix quina conversació vols veure");
                         casella=Integer.parseInt(ent.nextLine());
                         conver[casella]=personConver;
                         System.out.println(conver[0]);
@@ -82,5 +82,4 @@ public class Simulador {
 
             }
         }
-    }
 
